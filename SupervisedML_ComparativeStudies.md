@@ -2,7 +2,13 @@
 
 > Learn from experience (E) with respect to some task (T) and some performance measure (P), if its performance (T), as measured by (P), improves with expereince (E) - Tom Mitchell (1998)
 
-In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important include nature of data, amount of data, hyperparameter tunning, evaluation metrics, etc.
+In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important include:
+
+* nature of data (type, correlation, etc.)
+* amount of data
+* hyperparameter tunning
+* evaluation metrics
+* etc.
 
 #### For the list below:
 **_m_** refers to # of training data\
@@ -60,40 +66,49 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 | ------ | ------ |
 | <ul><li>Very simple and easy to understand/explain the results</li><li>Few assumptions on data</li><li>Support non-linear problems</li><li>May outperform other complex algorithm when **_m_** is large and **_n_** is small</li></ul> | <ul><li>**_K_** should be wisely selected</li><li>High computational cost in training and prediction when **_m_** is large</li><li>Not good when **_n_** is large (i.e. sparse)</li><li>Hard to deal with categorical features</li><li>Feature scaling is important</li></ul> |
 
-
-
-# continue here
-
 ## Decision Tree
 
 * Non-parametric algorithm for both regression and classification tasks.
+* Use of the "if-then-else" decision rules
+* Important hyperparameters to tune include:
+  - Maximum depth: the maximum depth of the tree
+  - Minimum sample split: the minimum number of samples needed for split
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Easy to explain the rationale</li><li>Deals with categorical data very well</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li></ul>|
+| <ul><li>Easy to explain the rationale (white-box)</li><li>Easily learn non-linear solution</li><li>Fairly robust to co-linearity problems</li><li>No feature pre-processing is required</li><li>Deals with categorical data very well</li><li>Provides feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li><li>Can be susceptible to outliers</li></ul> |
 
 ## Ensemble Tree
-* Bagging (Random Forest) or Boosting (Gradient Boosting)
-* Non-parametric algorithm for both regression and classification tasks.
-* More robust and accurate compared to the single tree model.
+* Combine the predictions of multiple base models
+* Bagging (i.e. Random Forest) or Boosting (i.e. AdaBoost, Gradient Boosting)
+* Non-parametric algorithm for both regression and classification tasks
+* More robust and accurate compared to the single tree model
+* Important hyperparameters to tune include:
+  - Number of individual estimators
+  - Maximum depth: the maximum depth of the tree
+  - Minimum sample split: the minimum number of samples needed for split
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Handles overfitting issue very efficiently</li><li>Deals with categorical data very well</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Computationally expensive as the number of trees gets larger</li><li>Difficult to explain the results</li></ul>|
+| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Handles overfitting issue very efficiently</li><li>Deals with categorical data very well</li><li>Provide feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Computationally expensive as the number of trees gets larger</li><li>Difficult to explain the results</li></ul>|
 
 ## Naive Bayes
-* Generative algorithm for classification tasks
+* Parametric and generative probability algorithm for classification tasks
 * Simple algorithm that depends on Bayes rule
+* Assume mutual independence among features (Naive)
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Performs very well compared to its simplicity</li><li>Very simple and fast to train</li><li>Works well when m is small</li></ul> | <ul><li>Assume mutual independence among features</li><li>Highly susceptible to co-linearity</li><li>Easily outperformed by other properly-tuned complex models</li></ul>|
+| <ul><li>Performs very well compared to its simplicity</li><li>Very simple and fast to train</li><li>Works well when **_m_** is small</li><li>Handles irrelevant features well</li></ul> | <ul><li>Highly susceptible to co-linearity</li><li>Easily outperformed by other properly-tuned complex models</li></ul> |
 
-## Neural network
-* Generative algorithm for classification tasks
-* Simple algorithm that depends on Bayes rule
+## Neural network (deep)
+* Non-parametric algorithm for both regression and classification tasks
+* Complex algorithm that tries to mimic the human brain
+* Important hyperparameters to tune include:
+  - Number of hidden layers
+  - Activation function (i.e. ReLU, Sigmoid)
+  - Batch size
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Can learn very complex functions</li><li>No need for arbitrary feature engineering</li></ul> | <ul><li>Require large amount of data to be trained properly</li><li>Computationally expensive</li><li>Many hyperparameteres to tune</li></ul>|
-<li></li>
+| <ul><li>Can learn very complex functions</li><li>No need for arbitrary feature engineering</li><li>Robust to outliers</li></ul> | <ul><li>Require large amount of data to be trained properly</li><li>Computationally expensive</li><li>Many hyperparameteres to tune</li><li>Difficult to interpret the results (black-box)</li></ul> |
