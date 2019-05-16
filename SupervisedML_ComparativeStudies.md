@@ -58,7 +58,7 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Very simple and easy to understand/explain the results</li><li>Few assumptions on data</li><li>Support non-linear problems</li><li>May outperform other complex algorithm<br>when **_m_** is large and **_n_** is small</li></ul> | <ul><li>**_K_** should be wisely selected</li><li>High computational cost in training and prediction when **_m_** is large</li><li>Not good when **_n_** is large (i.e. sparse)</li><li>Hard to deal with categorical features</li><li>Feature scaling is important</li></ul> |
+| <ul><li>Very simple and easy to understand/explain the results</li><li>Few assumptions on data</li><li>Support non-linear problems</li><li>May outperform other complex algorithm when **_m_** is large and **_n_** is small</li></ul> | <ul><li>**_K_** should be wisely selected</li><li>High computational cost in training and prediction when **_m_** is large</li><li>Not good when **_n_** is large (i.e. sparse)</li><li>Hard to deal with categorical features</li><li>Feature scaling is important</li></ul> |
 
 
 
