@@ -2,7 +2,7 @@
 
 > Learn from experience (E) with respect to some task (T) and some performance measure (P), if its performance (T), as measured by (P), improves with expereince (E) - Tom Mitchell (1998)
 
-In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important includes nature of data, amount of data, hyperparameter tunning, etc.
+In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important include nature of data, amount of data, hyperparameter tunning, evaluation metrics, etc.
 
 #### For the list below:
 **_m_** refers to # of training data\
@@ -43,33 +43,37 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
   * Type of kernel
   * Kernel-related parameters such as kernel width (&Gamma;) in case of using RBF kernel, and degree of polynomial in case of using polynomial kernel.
 
-$$
-\theta
-$$
-
-
-
 | Pros | Cons |
 | ------ | ------ |
 | <ul><li>Support non-linear problems well using kernels</li><li>Robust to overfitting and outliers compared to the linear models</li><li>Convex cost function</li><li>Work well when **_m_** is small and **_n_** is large (even infinite!)(</li><li>Memory efficient</li></ul> | <ul><li>Difficult to interpret the restuls</li><li>When using kernels, possibly be difficult to tune hyperparameters</li><li>With **_m_** going large, training speed and memory efficiency goes down greatly</li><li>Feature scaling becomes criticial when employing kernels</li></ul> |
 
 ## K-nearest Neighbors (KNN)
-* Non-parametric algorithm for both regression and classification tasks.
-* For classification task, it is a hard classifier with a maximum margin hyperplane.
-* Its cost function is the simpler version of that of logistic regression.
+* Non-parametric algorithm for both regression and classification tasks
+* Memory-based learning which involve the entire dataset during the prediction
+* Important hyperparameters to tune include:
+  * Number of nearest neighbors the classifier will retrieve (K); usually odd number
+  * Distance metric (i.e. Euclidian)
+  * Optimal weighting function (i.e. closer neighabor gets more weight?)
+  * Method of aggregating (i.e. majority vote)
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Very simple</li><li>Involve only a few hyperparameters</li><li>Support non-linear problems</li><li>May outperform other complex algorithm when m is large and n is small</li></ul> | <ul><li>'K' should be wisely selected</li><li>High prediction cost when m is large</li><li>Hard to deal with categorical features</li><li>Feature scailing is important</li></ul>|
+| <ul><li>Very simple and easy to understand/explain the results</li><li>Few assumptions on data</li><li>Support non-linear problems</li><li>May outperform other complex algorithm when **_m_** is large and **_n_** is small</li></ul> | <ul><li>**_K_** should be wisely selected</li><li>High prediction cost when **_m_** is large</li><li>Not good when **_n_** is large (i.e. sparse)</li><li>Hard to deal with categorical features</li><li>Feature scaling is important</li></ul> |
+
+
+
+# continue here
 
 ## Decision Tree
+
 * Non-parametric algorithm for both regression and classification tasks.
 
 | Pros | Cons |
 | ------ | ------ |
 | <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Easy to explain the rationale</li><li>Deals with categorical data very well</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li></ul>|
 
-## Ensemble Tree (Bagging and Boosting)
+## Ensemble Tree
+* Bagging (Random Forest) or Boosting (Gradient Boosting)
 * Non-parametric algorithm for both regression and classification tasks.
 * More robust and accurate compared to the single tree model.
 
