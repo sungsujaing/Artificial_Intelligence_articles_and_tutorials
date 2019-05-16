@@ -1,11 +1,11 @@
-# Comparative studies of<br>Classic supervised machine learning algorithms
+# Comparative studies of Classic supervised machine learning algorithms
 
 > Learn from experience (E) with respect to some task (T) and some performance measure (P), if its performance (T), as measured by (P), improves with expereince (E) - Tom Mitchell (1998)
 
 In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important includes nature of data, amount of data, hyperparameter tunning, etc.
 
 #### For the list below:
-**_m_** refers to # of training data<br>
+**_m_** refers to # of training data\
 **_n_** refers to # of feature
 
 ## Linear models
@@ -42,6 +42,12 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
   * Regularization parameter (C)
   * Type of kernel
   * Kernel-related parameters such as kernel width (&Gamma;) in case of using RBF kernel, and degree of polynomial in case of using polynomial kernel.
+
+$$
+\theta
+$$
+
+
 
 | Pros | Cons |
 | ------ | ------ |
