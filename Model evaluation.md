@@ -99,5 +99,20 @@ As an extension of a simple binary case, overall evaluation metrics are averaged
 
 ## For regression model
 
+Typically, r<sup>2</sup> score (total variance explained by a model/total variance) is satisfactory. If not, consider to minimize:
 
-
+* Mean Absolute Error (MAE)
+  * average magnitidue of the differences (errors) between the predicted and true target values
+  * MAE holds the same unit as the target variable and easy to interpret 
+  * do not distinguish between over- and under-estimations
+* Mean Sqaured Error (MSE)
+  * similar to MAE, but apply more penalty to high-errored values (desirable when large errors should be avoided)
+  * MSE holds a different unit from the target variable
+  * do not distinguish between over- and under-estimations
+* Root Mean Squared Error (RMSE)
+  * similar to MSE, more penalty to high-errored values  (desirable when large errors should be avoided)
+  * similar to MAE, RMSE holds the same unit as the target variable, but more challenging to interpret the result
+  * do not distinguish between over- and under-estimations
+* Median Absolute Error
+  * robust to outlier
+* etc.

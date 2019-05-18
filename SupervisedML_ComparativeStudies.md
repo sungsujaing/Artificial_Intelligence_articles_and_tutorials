@@ -27,6 +27,9 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 * Typical cost function: entropy
 * Falling in 0 - 1, logistic regression predict probability y falling in a certain class given x, parameterized by &theta;
 * Threshold (default: 0.5) can be arbitrarily adjusted based on the specific evaluation criteria
+
+<img src="images/entropy.png" width="500">
+
 #### For both cases
 * No hyperparameter that controls model complexity 
 * Important hyperparameters include
@@ -76,7 +79,7 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Easy to explain the rationale (white-box)</li><li>Easily learn non-linear solution</li><li>Fairly robust to co-linearity problems</li><li>No feature pre-processing is required</li><li>Deals with categorical data very well</li><li>Provides feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li><li>Can be susceptible to outliers</li></ul> |
+| <ul><li>Easy to explain the rationale (white-box)</li><li>Easily learn non-linear solution</li><li>Fairly robust to co-linearity problems</li><li>No feature pre-processing is required</li><li>Deals with categorical data very well</li><li>Provides feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li><li>High variance (different splits can lead to very different results)</li><li>Can be susceptible to outliers</li></ul> |
 
 ## Ensemble Tree
 * Combine the predictions of multiple base models
@@ -90,7 +93,7 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 
 | Pros | Cons |
 | ------ | ------ |
-| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Handles overfitting issue very efficiently</li><li>Deals with categorical data very well</li><li>Provide feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Computationally expensive as the number of trees gets larger</li><li>Difficult to explain the results</li></ul>|
+| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Handles overfitting issue very efficiently</li><li>Deals with categorical data very well</li><li>Provide feature importance information</li><li>Easily parallelized across multiple processors</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Computationally expensive as the number of trees gets larger</li><li>Difficult to explain the results</li></ul>|
 
 ## Naive Bayes
 * Parametric and generative probability algorithm for classification tasks
