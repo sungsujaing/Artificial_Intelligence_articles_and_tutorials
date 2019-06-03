@@ -1,6 +1,6 @@
 # Preparing your own image dataset:
 
-## *Download and pre-process the image directories*
+### *Download and pre-process the image directories*
 
 Prior to building an image classifier for different purposes, one of the most critical tasks to perform is to collect a set of quality images for training. While many image databases provide various types of image for practiontioners to download and use, preparing one's own can be challenging and time-consuming.
 

@@ -2,4 +2,3 @@
 .project
 *.pyc
 .ipynb_checkpoints
-images
