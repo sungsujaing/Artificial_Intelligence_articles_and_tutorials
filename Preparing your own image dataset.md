@@ -1,6 +1,6 @@
-#Preparing your own image dataset:
+# Preparing your own image dataset:
 
-##Download and pre-process the image directories*
+## *Download and pre-process the image directories*
 
 Prior to building an image classifier for different purposes, one of the most critical tasks to perform is to collect a set of quality images for training. While many image databases provide various types of image for practiontioners to download and use, preparing one's own can be challenging and time-consuming.
 
@@ -16,11 +16,11 @@ This module performs:
 
 In this article, practical uses of this module, including the effects of its important parameters, will be explored.
 
-###Installation
+### Installation
 
 simply run `pip install google_images_download` on your python environment.
 
-###Define a module object and helper funtion
+### Define a module object and helper funtion
 
 ``` python
 from google_images_downlaod import google_images_download
@@ -52,7 +52,7 @@ The directory structure looks like <`output_directory`><`image_directory`>< `ima
 
 **(2)** not mendatory, but handles a FileNotFoundError
 
-###Define a search query and download
+### Define a search query and download
 
 ``` python
 search_queries = ['smiling dogs','sad dogs'] # keyword examples
@@ -67,7 +67,7 @@ for msg in download_msg:
 
 #### *Output example*
 
-![image-20190603172741520](/Users/seanchoi/Library/Application Support/typora-user-images/image-20190603172741520.png)
+<img src="images/gid_output_example.png" width="700">
 
 In this case, `limit` was set to 1000. However, not all 1000 images could be downloaded because they wre not downloadable. 
 
@@ -76,13 +76,13 @@ A few possible way arounds include:
 * set `limit` argument to a much greater value
 * add `related_images` argument to download other images related to the keyword provided
 
-###Chromedriver
+### Chromedriver
 
 By default, Google display 100 images per page. By moving to the next page or scrolling down, more images can be loaded on the web, but `google_images_download` module requires a chromedriver to do that automatically. 
 
 chromedriver can be downloaded [here](http://chromedriver.chromium.org/downloads). Correct driver needs to be downloaded based on the chrome browser version. The path to 'chromedriver.exe' then simply needs to be provided as one of the arguments as described above.
 
-###(Optional) image directory pre-processing: file renaming
+### (Optional) image directory pre-processing: file renaming
 
 The downloaded image files are numbered but still contain arbitrary file names. If required, the files can be renamed so as to be listed like:
 
@@ -140,9 +140,9 @@ os.chdir(original_path)
 
 #### *Output example*
 
-![image-20190603174821481](/Users/seanchoi/Library/Application Support/typora-user-images/image-20190603174821481.png)
+<img src="images/image_display_example.png" width="700">
 
-### Next !?
+## Next !?
 
 The prepared dataset can then be fed into a CNN model for training. 
 
