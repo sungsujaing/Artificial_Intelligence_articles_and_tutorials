@@ -10,7 +10,7 @@ To handle the model overfitting, one may consider to implement:
 - batchnormalization
 - data augmentation
 
-Here in this article, detailed usage of the Keras data augmentation method is explored. The `ImageDataGenerator` class invovles ***data preprocessing, on-the-fly data augmentation and feeding in one step***. While these steps can be carried rather manually using other frameworks like openCV, the `ImageDataGenerator` class in Keras provides a really easy way to achieve the goal with the minimal efforts.
+Here in this article, detailed usage of the Keras data augmentation method is explored. The `ImageDataGenerator` class involves ***data preprocessing, on-the-fly data augmentation and feeding in one step***. While these steps can be carried rather manually using other frameworks like openCV, the `ImageDataGenerator` class in Keras provides a really easy way to achieve the goal with the minimal efforts.
 
 ## Importing the module
 
