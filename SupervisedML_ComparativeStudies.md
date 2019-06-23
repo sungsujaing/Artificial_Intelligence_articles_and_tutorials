@@ -1,8 +1,8 @@
 # Comparative studies of Classic supervised machine learning algorithms
 
-> Learn from experience (E) with respect to some task (T) and some performance measure (P), if its performance (T), as measured by (P), improves with expereince (E) - Tom Mitchell (1998)
+> Learn from experience (E) with respect to some task (T) and some performance measure (P), if its performance (T), as measured by (P), improves with experience (E) - Tom Mitchell (1998)
 
-In many case, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important include:
+In many cases, different Machine Learning (ML) algorithms may exhibit similar performances. What is more important include:
 
 * nature of data (type, correlation, etc.)
 * amount of data
@@ -45,12 +45,12 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 * Only uses the subset of training data (support vectors) to model decision functions
 * Predict 1 if &theta;<sup>T</sup>x >= 1. Predict 0 if &theta;<sup>T</sup>x <= -1, forcing to have an extra margin
 * Its cost function is the simpler version of that of logistic regression
-* For classification task, it is a hard classifier which provides no probability
+* For a classification task, it is a hard classifier which provides no probability
 * Using kernel tricks, feature space is expanded to higher orders without adding any new features. A linear classifier fitted in the transformed space becomes non-linear classifier in the original space.
 * Important hyperparameters include
   * Regularization parameter (C)
   * Type of kernel
-  * Kernel-related parameters such as kernel width (&Gamma;) in case of using RBF kernel, and degree of polynomial in case of using polynomial kernel.
+  * Kernel-related parameters such as kernel width (&Gamma;) in case of using RBF kernel, and degree of a polynomial in case of using polynomial kernel.
 
 | Pros | Cons |
 | ------ | ------ |
@@ -58,7 +58,7 @@ In many case, different Machine Learning (ML) algorithms may exhibit similar per
 
 ## K-nearest Neighbors (KNN)
 * Non-parametric algorithm for both regression and classification tasks
-* Memory-based learning which involve the entire dataset during the prediction
+* Memory-based learning which involves the entire dataset during the prediction
 * Important hyperparameters to tune include:
   * Number of nearest neighbors the classifier will retrieve (K); usually odd number
   * Distance metric (i.e. Euclidian)

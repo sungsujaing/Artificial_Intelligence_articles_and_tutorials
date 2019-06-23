@@ -30,7 +30,7 @@ For a particular hyperparameter, a validation curve can help if the model is ove
 
 A learning curve can help if the model is overfitting or underfitting as the number of training sample varies.
 
-- If errors of the training and the CV sets converges to a high value, the model is underfitting - High bias (Fig. a)
+- If errors of the training and the CV sets converge to a high value, the model is underfitting - High bias (Fig. a)
 - If an error of the CV set is way higher than that of the training set, the model is overfitting - High variance (Fig. b)
 
 <p align="center"><img src="images/learning_curve.png" width="500"></p>
@@ -47,16 +47,16 @@ A learning curve can help if the model is overfitting or underfitting as the num
    * Decreasing **_n_** by removing some less important features
    * More regularization
 2. If a model is underfitting (high bias), consider:
-   * Note: increasing **_m_** does not help improving the model performance
+   * Note: increasing **_m_** does not help to improve the model performance
    * Increasing **_n_** by adding more features
    * Less regularization
 
-## For classification model (binary)
+## For a classification model (binary)
 
-The model performance is usually evaluated by various evaluation methods (i.e. accuracy, user satisfaction, survival rate of patient, etc.). **_Accuracy_** is the most popular default choice, but it may give a _partial_ picture of a performance only in many scenarios.
+The model performance is usually evaluated by various evaluation methods (i.e. accuracy, user satisfaction, survival rate of the patient, etc.). **_Accuracy_** is the most popular default choice, but it may give a _partial_ picture of performance only in many scenarios.
 
 * Typical example: imbalanced or skewed class (only a small subset of data explains positive class)
-  * Possible scenarios: occurance of fire in a city, occurance of malignant tumors, credit fraud detection, etc.
+  * Possible scenarios: occurrence of fire in a city, occurrence of malignant tumors, credit fraud detection, etc.
   * Problem: Even an untrained model (dummy classifier) may give higher accuracy by predicting all as negative 
 * Solution: consider other evaluation metrics such as precision and recall (confusion matrix)
   * **_<u>P</u>_**recision = % True among **_<u>P</u>_**redicted as True (important when to avoid False **_<u>P</u>_**ositive)
@@ -80,7 +80,7 @@ The model performance is usually evaluated by various evaluation methods (i.e. a
 
 <p align="center"><img src="images/ROC_curve.png" width="500"></p>
 
-## For classification model (multi-clasee)
+## For a classification model (multi-clasee)
 
 As an extension of a simple binary case, overall evaluation metrics are averaged across classes. They are different ways of averaging them and, depending on the distribution of classes, they may lead to different results.
 
@@ -97,15 +97,15 @@ As an extension of a simple binary case, overall evaluation metrics are averaged
   * if micro- << macro-, large classes have poor metrics
   * if micro >> macro-, small classes have poor metrics
 
-## For regression model
+## For a regression model
 
 Typically, r<sup>2</sup> score (total variance explained by a model/total variance) is satisfactory. If not, consider to minimize:
 
 * Mean Absolute Error (MAE)
-  * average magnitidue of the differences (errors) between the predicted and true target values
+  * average magnitude of the differences (errors) between the predicted and true target values
   * MAE holds the same unit as the target variable and easy to interpret 
   * do not distinguish between over- and under-estimations
-* Mean Sqaured Error (MSE)
+* Mean Squared Error (MSE)
   * similar to MAE, but apply more penalty to high-errored values (desirable when large errors should be avoided)
   * MSE holds a different unit from the target variable
   * do not distinguish between over- and under-estimations
@@ -116,3 +116,4 @@ Typically, r<sup>2</sup> score (total variance explained by a model/total varian
 * Median Absolute Error
   * robust to outlier
 * etc.
+

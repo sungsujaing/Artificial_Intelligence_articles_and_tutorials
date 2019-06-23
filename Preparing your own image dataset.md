@@ -2,9 +2,9 @@
 
 ### *Download and pre-process the image directories*
 
-Prior to building an image classifier for different purposes, one of the most critical tasks to perform is to collect a set of quality images for training. While many image databases provide various types of image for practiontioners to download and use, preparing one's own can be challenging and time-consuming.
+Prior to building an image classifier for different purposes, one of the most critical tasks to perform is to collect a set of quality images for training. While many image databases provide various types of image for practitioners to download and use, preparing one's own can be challenging and time-consuming.
 
-If only a few, one can do it manually with no much difficulties. However, considering the nature of typical DNN models where greater amount of data tends to help achieving a better model, one needs to collect more than just a few images in his/her training set.
+If only a few, one can do it manually with not many difficulties. However, considering the nature of typical DNN models where a greater amount of data tends to help to achieve a better model, one needs to collect more than just a few images in his/her training set.
 
 Among a few options, this article introduces the uses of the **google_images_download** module in *Python*. Detailed module information can be found [here](https://github.com/hardikvasa/google-images-download).
 
@@ -12,7 +12,7 @@ This module performs:
 
 * Download multiple images from google based on the provided search queries
 * Type of images to download can be specified based on extension, dimension, size, etc.
-* Auto-categorize images of different search queries into different folders 
+* Auto-categorize images of different search query into different folders 
 
 In this article, practical uses of this module, including the effects of its important parameters, will be explored.
 
@@ -20,7 +20,7 @@ In this article, practical uses of this module, including the effects of its imp
 
 simply run `pip install google_images_download` on your python environment.
 
-### Define a module object and helper funtion
+### Define a module object and helper function
 
 ``` python
 from google_images_downlaod import google_images_download
@@ -42,7 +42,7 @@ def download_img(query):
 
 A full list of argument can be found [here](https://google-images-download.readthedocs.io/en/latest/arguments.html). A few important arguments include:
 
-* `keywords`: seach keywords; = query
+* `keywords`: search keywords; = query
 * `limit`: number of images to download
 * `format`: format of image files to download
 * `chromedriver`: path to chromdriver; important if to set `limit` > 100; more details found [here](#chromedriver)
@@ -50,7 +50,7 @@ A full list of argument can be found [here](https://google-images-download.readt
 
 The directory structure looks like <`output_directory`><`image_directory`>< `images`>. If not specified, default is `output_directory` = downloads and `image_directory` = name of the keywords
 
-**(2)** not mendatory, but handles a FileNotFoundError
+**(2)** not mandatory, but handles a FileNotFoundError
 
 ### Define a search query and download
 
@@ -69,18 +69,18 @@ for msg in download_msg:
 
 <p align="center"><img src="images/gid_output_example.png" width="700"></p>
 
-In this case, `limit` was set to 1000. However, not all 1000 images could be downloaded because they wre not downloadable. 
+In this case, `limit` was set to 1000. However, not all 1000 images could be downloaded because they were not downloadable. 
 
-A few possible way arounds include:
+A few possible way around include:
 
 * set `limit` argument to a much greater value
 * add `related_images` argument to download other images related to the keyword provided
 
 ### Chromedriver
 
-By default, Google display 100 images per page. By moving to the next page or scrolling down, more images can be loaded on the web, but `google_images_download` module requires a chromedriver to do that automatically. 
+By default, Google displays 100 images per page. By moving to the next page or scrolling down, more images can be loaded on the web, but `google_images_download` module requires a chromedriver to do that automatically. 
 
-chromedriver can be downloaded [here](http://chromedriver.chromium.org/downloads). Correct driver needs to be downloaded based on the chrome browser version. The path to 'chromedriver.exe' then simply needs to be provided as one of the arguments as described above.
+chromedriver can be downloaded [here](http://chromedriver.chromium.org/downloads). A correct driver needs to be downloaded based on the chrome browser version. The path to 'chromedriver.exe' then simply needs to be provided as one of the arguments as described above.
 
 ### (Optional) image directory pre-processing: file renaming
 
