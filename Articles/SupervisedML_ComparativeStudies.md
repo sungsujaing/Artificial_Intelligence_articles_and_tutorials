@@ -28,7 +28,7 @@ In many cases, different Machine Learning (ML) algorithms may exhibit similar pe
 * Falling in 0 - 1, logistic regression predict probability y falling in a certain class given x, parameterized by &theta;
 * Threshold (default: 0.5) can be arbitrarily adjusted based on the specific evaluation criteria
 
-<p align="center"><img src="images/entropy.png" width="500"></p>
+<p align="center"><img src="../images/entropy.png" width="500"></p>
 
 #### For both cases
 * No hyperparameter that controls model complexity 

@@ -67,7 +67,7 @@ for msg in download_msg:
 
 #### *Output example*
 
-<p align="center"><img src="images/gid_output_example.png" width="700"></p>
+<p align="center"><img src="../images/gid_output_example.png" width="700"></p>
 
 In this case, `limit` was set to 1000. However, not all 1000 images could be downloaded because they were not downloadable. 
 
@@ -139,7 +139,7 @@ os.chdir(original_path)
 ```
 
 #### *Output example*
-<p align="center"><img src="images/image_display_example.png" width="700"></p>
+<p align="center"><img src="../images/image_display_example.png" width="700"></p>
 
 ### Next !?
 
