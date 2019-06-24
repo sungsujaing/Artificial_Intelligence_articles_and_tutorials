@@ -2,9 +2,11 @@
 
 This repository contains a collection of my personal articles on various topics of machine learning and deep learning research in python. 
 
-###  [Exploring non-linear activation functions][5] (ongoing)
+###  [Exploring non-linear activation functions][5]
 
 In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the MNIST dataset.
+
+<p align="center"><img src="images/activation_test_result.png" width="650"></p>
 
 ### [Preparing a customized image dataset from online sources][1]
 

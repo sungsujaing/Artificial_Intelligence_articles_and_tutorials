@@ -45,7 +45,7 @@ Typical examples of activation functions widely used today include:
 
 ## Simple experiment on the MNIST dataset
 
-In order to compare performances of models that are constructed with different activation functions, the MNIST dataset was used. The full details of the testing code can be found ***[here][http://]***. Constructing the best model was not the main purpose in this experiment, so a simple fully-connected neural network was built with arbitrary hidden layers and units as shown below. In this case, ***stochastic gradient descent*** was chosen as an optimizer, but the code is flexible to other types as well.
+In order to compare performances of models that are constructed with different activation functions, the MNIST dataset was used. The full details of the testing code can be found ***[here][https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Activation_funtion_experiment.ipynb]***. Constructing the best model was not the main purpose in this experiment, so a simple fully-connected neural network was built with arbitrary hidden layers and units as shown below. In this case, ***stochastic gradient descent*** was chosen as an optimizer, but the code is flexible to other types as well.
 
 <p align="center"><img src="../images/activation_test_model.png" width="750"></p>
 
