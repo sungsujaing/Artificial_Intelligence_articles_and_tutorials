@@ -43,6 +43,22 @@ Typical examples of activation functions widely used today include:
 * Variation of ReLU that resolves the dying ReLU problem
 * With its negative activations, their mean activation is close to zero and thus speeds up the learning process and convergence. 
 
-## Simple experiment on MNIST dataset
+## Simple experiment on the MNIST dataset
 
-to be added..
+In order to compare performances of models that are constructed with different activation functions, the MNIST dataset was used. The full details of the testing code can be found ***[here][http://]***. Constructing the best model was not the main purpose in this experiment, so a simple fully-connected neural network was built with arbitrary hidden layers and units as shown below. In this case, ***stochastic gradient descent*** was chosen as an optimizer, but the code is flexible to other types as well.
+
+<p align="center"><img src="../images/activation_test_model.png" width="750"></p>
+
+With 60,000 training data and 10,000 test data, all inputs were preprocessed for normalization and flattened. The labels were one-hot-encoded as desired. 
+
+<p align="center"><img src="../images/activation_test_preprocessing.png" width="750"></p>
+
+A fraction of the training set (0.15) was used as validation and the test set was held for the later evaluation. After 20 epochs with a batch size of 256, loss and accuracy of the tested models were tracked on training and validation sets. For this particular dataset and the structure of the model built, ***elu*** and ***tanh*** seem to perform well compared to the others.
+
+<p align="center"><img src="../images/activation_test_result.png" width="750"></p>
+
+Finally, the trained models were evaluated on the test set. Again, for this particular dataset and the structure of the model built, ***elu***-based model exhibited the highest accuracy. 
+
+<p align="center"><img src="../images/activation_test_eval.png" width="500"></p>
+
+To be done: perform the same comparison study on the CNN models.
