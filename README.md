@@ -20,7 +20,8 @@ Regardless of the type of predictive modelling problems on hands, a model is opt
 
 
 
-[1]:https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Preparing%20your%20own%20image%20dataset.md
-[2]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Handling%20overfitting%20in%20CNN%20using%20keras%20ImageDataGenerator.md
-[3]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/SupervisedML_ComparativeStudies.md
-[4]:https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Model%20evaluation.md
+[1]:https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Preparing%20your%20own%20image%20dataset.md
+[2]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Handling%20overfitting%20in%20CNN%20using%20keras%20ImageDataGenerator.md
+[3]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/SupervisedML_ComparativeStudies.md
+[4]:https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Model%20evaluation.md
+
