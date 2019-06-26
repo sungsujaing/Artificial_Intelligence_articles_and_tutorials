@@ -4,7 +4,7 @@ This repository contains a collection of my personal articles on various topics 
 
 ###  [Exploring non-linear activation functions][5]
 
-In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, simple experimental results are presented comparing the performance of the models with different activation functions when fitting the MNIST dataset (both on simple NN and CNN architectures).
+In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the simple MNIST dataset (both on arbitrarily-built NN and CNN architectures).
 
 <p align="center">
 <img src="images/activation_funtion_elu.png" width="25%">
