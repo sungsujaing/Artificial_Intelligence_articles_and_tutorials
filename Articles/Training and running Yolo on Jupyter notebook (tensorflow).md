@@ -4,7 +4,7 @@
 
 The original YOLO algorithm is implemented in [Darknet framework](https://github.com/pjreddie/darknet) by Joseph Redmon. This open-source framework is written in C and CUDA, and its detailed implementation can be found on the [Darknet project website](https://pjreddie.com/darknet/). The pre-trained models and weights are fully available and these can be used to detect in real-time the objects that the model has been trained for.
 
-Along with the original darknet, we also have a new framework called [**darkflow**](https://github.com/thtrieu/darkflow). Thanks to thtrieu, the darknet framework has been translated into Tensorflow under the name of darkflow. With darkflow, YOLO (only support up to YOLO version2 yet!) can be retrained/customized on Tensorflow.
+Along with the original darknet, we also have a new framework called [**darkflow**](https://github.com/thtrieu/darkflow). Thanks to thtrieu, the darknet framework has been translated into TensorFlow under the name of darkflow. With darkflow, YOLO (only support up to YOLO version2 yet!) can be retrained/customized on TensorFlow.
 
 The detailed implementation of YOLO on darkflow is described in its repository where it utilizes the ***flow*** method on a console. This article describes the step-by-step process of running/training YOLO on Jupyter notebook.
 
@@ -14,7 +14,7 @@ It would be a good idea to create a new virtual working environment for YOLO as 
 
 Recommended modules/versions include:
 
-* tensorflow 1.12.0
+* TensorFlow 1.12.0
 * CUDA 9.0 (for GPU implementation)
 * opencv 3.4.1 or 3.4.5
 * Cython 0.29.10
@@ -75,7 +75,6 @@ with tf.Session(config=config) as sess:
 Expected output:
 
 <p align="center"><img src="../images/TRYJN_building_output.png" width="500"></p>
-
 ### Run the pre-trained YOLO on a sample image
 
 ```python
@@ -105,7 +104,6 @@ plt.subplots_adjust(left=0.2, wspace=0)
 Expected output:
 
 <p align="center"><img src="../images/TRYJN_test_image_output.png" width="500"></p>
-
 This idea can be simply extended to real-time object detection on saved/live-stream videos. Some examples can be found in my [HappyDogDetector project](https://github.com/sungsujaing/Happy_Dog_Detection). 
 
 ## Darkflow framework and basic configuration to *train a customized YOLO* (transfer learning)
