@@ -8,7 +8,7 @@ This repository contains a collection of my personal articles on various topics 
 
 The original YOLO algorithm is implemented in [darknet](https://github.com/pjreddie/darknet) framework by Joseph Redmon. This open-source framework is written in C and CUDA, and therefore a new framework called [**darkflow**](https://github.com/thtrieu/darkflow) has been introduced to implement YOLO on TensorFlow. This article describes the practical step-by-step process of configuring, running, and training custom YOLO on Jupyter notebook and TensorFlow.
 
-<p><img src="images/TRYJN_test_image_output.png" width="65%"></p>
+<p align="center"><img src="images/TRYJN_test_image_output.png" width="50%"></p>
 
 ###  [Exploring non-linear activation functions][5]
 
@@ -49,4 +49,4 @@ Regardless of the type of predictive modelling problems on hands, a model is opt
 [4]:https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Model%20evaluation.md
 [5]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Exploring%20non-linear%20activation%20functions.md
 
-[6]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Training%20and%20running%20Yolo%20on%20Jupyter%20notebook%20(TensorFlow).md
+[6]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Training%20and%20running%20Yolo%20on%20Jupyter%20notebook%20(tensorflow).md
