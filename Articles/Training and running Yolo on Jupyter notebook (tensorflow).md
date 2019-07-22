@@ -1,132 +1,198 @@
-# Training and running Yolo on Jupyter notebook (tensorflow)
+# Training and running Yolo on Jupyter notebook (TensorFlow)
 
-**YOLO (You Only Look Once)** is one of the fastest and most popular *one-stage object detector* currently in the field. Unlike other typical two-stage object detectors like R-CNN, YOLO looks at the entire image once (with single neural network) to localize/classify the objects that it was trained for. The most up-to-date version (YOLO version 3) is shown to be highly competitive to other object detectors in terms of mAP, but about > 4 times faster. The detailed comparison can be found on their official [website](https://pjreddie.com/darknet/yolo/).
+**YOLO (You Only Look Once)** is one of the fastest and most popular *one-stage object detector* currently in the field. Unlike other typical two-stage object detectors like R-CNN, YOLO looks at the entire image once (with a single neural network) to localize/classify the objects that it was trained for. The most up-to-date version (YOLO version 3) is shown to be highly competitive to other object detectors in terms of mAP, but about > 4 times faster. The detailed comparison can be found on their official [website](https://pjreddie.com/darknet/yolo/).
 
 The original YOLO algorithm is implemented in [Darknet framework](https://github.com/pjreddie/darknet) by Joseph Redmon. This open-source framework is written in C and CUDA, and its detailed implementation can be found on the [Darknet project website](https://pjreddie.com/darknet/). The pre-trained models and weights are fully available and these can be used to detect in real-time the objects that the model has been trained for.
 
-Along with the originial darknet, we also have a new framework called [**darkflow**](https://github.com/thtrieu/darkflow). Thanks to thtrieu, the darknet framework has been translated into Tensorflow under the name of darkflow. With darkflow, YOLO can be retrained/customized on Tensorflow.
+Along with the original darknet, we also have a new framework called [**darkflow**](https://github.com/thtrieu/darkflow). Thanks to thtrieu, the darknet framework has been translated into Tensorflow under the name of darkflow. With darkflow, YOLO (only support up to YOLO version2 yet!) can be retrained/customized on Tensorflow.
 
-The detailed implentation of YOLO on darkflow is described in its repository where it utilizes the ***flow*** method on a console. This article describes step-by-step process of running/training YOLO on Jupyter notebook. 
+The detailed implementation of YOLO on darkflow is described in its repository where it utilizes the ***flow*** method on a console. This article describes the step-by-step process of running/training YOLO on Jupyter notebook.
 
-- nature of data (type, correlation, etc.)
-- amount of data
-- hyperparameter tunning
-- evaluation metrics
-- etc.
+## Before start
 
-#### For the list below:
+It would be a good idea to create a new virtual working environment for YOLO as it may require some modules on their previous versions. 
 
-**_m_** refers to # of training data\
-**_n_** refers to # of feature
+Recommended modules/versions include:
 
-## Linear models
+* tensorflow 1.12.0
+* CUDA 9.0 (for GPU implementation)
+* opencv 3.4.1 or 3.4.5
+* Cython 0.29.10
 
-#### Linear regression
+#### If not installed yet:
 
-- Common parametric algorithm for regression tasks
-- Model: h<sub>&theta;</sub>(x) = &theta;<sup>T</sup>x where &theta; and x are n+1 dimensional vectors
-- Typical cost function: MSE
-- In case of linear regression, a simple normal equation (&theta; = (X<sub>T</sub>X)<sup>-1</sup>X<sup>T</sup>y) can be solved instead of applying the gradient descent optimizer. However, this numerical approach tends to be slower when **_n_** gets large.
+* VisualStudio 2015 and essential build tools ([Microsoft Build Tools 2015 Update 3](https://visualstudio.microsoft.com/vs/older-downloads/)): This is essential in building Cython extensions in place (C-based darknet —> python-based darkflow).
 
-#### Logistic regression
+## Darkflow framework and basic configuration to *implement a pretrained YOLO*
 
-- Common parametric algorithm for classification tasks
-- Usually **sigmoid function** (g) is applied to a linear regression model to build a logistic regression classifier
-- Model: h<sub>&theta;</sub>(x) = g(&theta;<sup>T</sup>x) where g(z) = (1+e<sup>-z</sup>)<sup>-1</sup>
-- Typical cost function: entropy
-- Falling in 0 - 1, logistic regression predict probability y falling in a certain class given x, parameterized by &theta;
-- Threshold (default: 0.5) can be arbitrarily adjusted based on the specific evaluation criteria
+1. On the desired path, the darkflow github repository can be cloned.
 
-<p align="center"><img src="../images/entropy.png" width="500"></p>
+   `git clone https://github.com/thtrieu/darkflow`
 
-#### For both cases
+2. Build the Cython extensions in place.
 
-- No hyperparameter that controls model complexity 
-- Important hyperparameters include
-  - Regularization parameter (&lambda;) - should followed by feature scaling
-  - Learning rate (&alpha;)
+   `python setup.py build_ext —inplace` or `pip install -e` or `pip install .`
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Fast training and easy to understand/explain the results</li><li>Provide feature significance</li><li>**Convex cost function**</li><li>Work well when **_m_** is small and **_n_** is large</li></ul> | <ul><li>Naturally **_not_** flexible to model non-linear hyperplanes</li><li>Cannot handle categotical variables well</li><li>Adding high-order features is an option, but is difficult and time-consuimng</li><li>Feature scaling becomes important when adding high-order features</li><li>Susceptible to outliers and co-linearity</li></ul> |
+3. Create a folder:
 
-## Support Vector Machines (SVM)
+   * ../darkflow/bin - to store weights
 
-- Common parametric algorithm for both regression and classification tasks
-- Only uses the subset of training data (support vectors) to model decision functions
-- Predict 1 if &theta;<sup>T</sup>x >= 1. Predict 0 if &theta;<sup>T</sup>x <= -1, forcing to have an extra margin
-- Its cost function is the simpler version of that of logistic regression
-- For a classification task, it is a hard classifier which provides no probability
-- Using kernel tricks, feature space is expanded to higher orders without adding any new features. A linear classifier fitted in the transformed space becomes non-linear classifier in the original space.
-- Important hyperparameters include
-  - Regularization parameter (C)
-  - Type of kernel
-  - Kernel-related parameters such as kernel width (&Gamma;) in case of using RBF kernel, and degree of a polynomial in case of using polynomial kernel.
+4. Download the YOLO model and the corresponding weights from [HERE](https://pjreddie.com/darknet/yolo/) (please note that darkflow does not support YOLO version 3 yet).
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Support non-linear problems well using kernels</li><li>Robust to overfitting and outliers compared to the linear models</li><li>Convex cost function</li><li>Work well when **_m_** is small and **_n_** is large (even infinite!)(</li><li>Memory efficient</li></ul> | <ul><li>Difficult to interpret the restuls</li><li>When using kernels, possibly be difficult to tune hyperparameters</li><li>With **_m_** going large, training speed and memory efficiency goes down greatly</li><li>Feature scaling becomes criticial when employing kernels</li></ul> |
+5. save the model to ../darkflow/cfg and the weight to ..darkflow/bin.
 
-## K-nearest Neighbors (KNN)
+6. Make sure the *labels.txt* file contains the correct class names/numbers for the model being used ([example](https://github.com/thtrieu/darkflow/blob/master/cfg/coco.names)).
 
-- Non-parametric algorithm for both regression and classification tasks
-- Memory-based learning which involves the entire dataset during the prediction
-- Important hyperparameters to tune include:
-  - Number of nearest neighbors the classifier will retrieve (K); usually odd number
-  - Distance metric (i.e. Euclidian)
-  - Optimal weighting function (i.e. closer neighabor gets more weight?)
-  - Method of aggregating (i.e. majority vote)
+### Import modules and model configuration
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Very simple and easy to understand/explain the results</li><li>Few assumptions on data</li><li>Support non-linear problems</li><li>May outperform other complex algorithm when **_m_** is large and **_n_** is small</li></ul> | <ul><li>**_K_** should be wisely selected</li><li>High computational cost in training and prediction when **_m_** is large</li><li>Not good when **_n_** is large (i.e. sparse)</li><li>Hard to deal with categorical features</li><li>Feature scaling is important</li></ul> |
+```python
+from darkflow.net.build import TFNet
+import tensorflow as tf
+import cv2
+import os
+import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
 
-## Decision Tree
+config = tf.ConfigProto(log_device_placement=True)
+config.gpu_options.allow_growth=True
+with tf.Session(config=config) as sess:
+    options = {
+        'model':os.path.join('cfg','yolov2.cfg'), #(1)
+        'load':os.path.join('bin','yolov2.weights.weights'), #(1)
+        'threshold':0.5, #(2)
+        'gpu':1.0 #(3)
+    }
+    tfnet = TFNet(options)
+```
 
-- Non-parametric algorithm for both regression and classification tasks.
-- Use of the "if-then-else" decision rules
-- Important hyperparameters to tune include:
-  - Maximum depth: the maximum depth of the tree
-  - Minimum sample split: the minimum number of samples needed for split
+(1) custom names for a model and the corresponding pretrained weights
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Easy to explain the rationale (white-box)</li><li>Easily learn non-linear solution</li><li>Fairly robust to co-linearity problems</li><li>No feature pre-processing is required</li><li>Deals with categorical data very well</li><li>Provides feature importance information</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Overfit quite easily</li><li>High variance (different splits can lead to very different results)</li><li>Can be susceptible to outliers</li></ul> |
+(2) the threshold value (0.0-1.0) for non-maximum suppression
 
-## Ensemble Tree
+(3) the portion of the gpu memory to use
 
-- Combine the predictions of multiple base models
-- Bagging (i.e. Random Forest) or Boosting (i.e. AdaBoost, Gradient Boosting)
-- Non-parametric algorithm for both regression and classification tasks
-- More robust and accurate compared to the single tree model
-- Important hyperparameters to tune include:
-  - Number of individual estimators
-  - Maximum depth: the maximum depth of the tree
-  - Minimum sample split: the minimum number of samples needed for split
+Expected output:
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Easily learn non-linear solution</li><li>Fairly robust to outliers and co-linearity problems</li><li>No feature pre-processing is required</li><li>Handles overfitting issue very efficiently</li><li>Deals with categorical data very well</li><li>Provide feature importance information</li><li>Easily parallelized across multiple processors</li></ul> | <ul><li>May lose important information while dealing with continuous variable</li><li>Computationally expensive as the number of trees gets larger</li><li>Difficult to explain the results</li></ul> |
+<p align="center"><img src="../images/TRYJN_building_output.png" width="500"></p>
 
-## Naive Bayes
+### Run the pre-trained YOLO on a sample image
 
-- Parametric and generative probability algorithm for classification tasks
-- Simple algorithm that depends on Bayes rule
-- Assume mutual independence among features (Naive)
+```python
+img = cv2.imread(os.path.join('test_images','test_image_general.jpg'))
+img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+result = tfnet.return_predict(img)
+for r in result:
+    tl = (r['topleft']['x'], r['topleft']['y'])
+    br = (r['bottomright']['x'], r['bottomright']['y'])
+    label = r['label']
+    conf = r['confidence']
+    text = '{}({:.2f})'.format(label,conf)
+    (text_width, text_height) = cv2.getTextSize(text, cv2.FONT_HERSHEY_PLAIN,2,5)[0]
+    text_offset_x = tl[0]-3
+    text_offset_y = tl[1]
+    box_coords = ((text_offset_x, text_offset_y+10), (text_offset_x+text_width,text_offset_y-text_height-10))
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Performs very well compared to its simplicity</li><li>Very simple and fast to train</li><li>Works well when **_m_** is small</li><li>Handles irrelevant features well</li></ul> | <ul><li>Highly susceptible to co-linearity</li><li>Easily outperformed by other properly-tuned complex models</li></ul> |
+    img = cv2.rectangle(img, box_coords[0], box_coords[1], (255,0,0), cv2.FILLED)
+    img = cv2.rectangle(img,tl,br,(255,0,0),thickness=4)
+    img = cv2.putText(img,text,tl,cv2.FONT_HERSHEY_PLAIN,2,(255,255,255),3)
+plt.figure(figsize=(10,10))
+plt.imshow(img)
+plt.axis('off')
+plt.subplots_adjust(left=0.2, wspace=0)
+```
 
-## Neural network (deep)
+Expected output:
 
-- Non-parametric algorithm for both regression and classification tasks
-- Complex algorithm that tries to mimic the human brain
-- Important hyperparameters to tune include:
-  - Number of hidden layers
-  - Activation function (i.e. ReLU, Sigmoid)
-  - Batch size
+<p align="center"><img src="../images/TRYJN_test_image_output.png" width="500"></p>
 
-| Pros                                                         | Cons                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <ul><li>Can learn very complex functions</li><li>No need for arbitrary feature engineering</li><li>Robust to outliers</li></ul> | <ul><li>Require large amount of data to be trained properly</li><li>Computationally expensive</li><li>Many hyperparameteres to tune</li><li>Difficult to interpret the results (black-box)</li></ul> |
+This idea can be simply extended to real-time object detection on saved/live-stream videos. Some examples can be found in my [HappyDogDetector project](https://github.com/sungsujaing/Happy_Dog_Detection). 
+
+## Darkflow framework and basic configuration to *train a customized YOLO* (transfer learning)
+
+In addition to the configuration described above:
+
+1. create folders:
+
+   * ../darkflow/ckpt - to store checkpoint models/weights
+   * ../darkflow/train/images - to store training images (folder names can be customized)
+   * ../darkflow/train/images-annot - to store the labels of training images (folder names can be customized)
+
+2. modify the `labels.txt` file to contain the classes to be trained for.
+
+3. modify the .cfg file as the following:
+
+   * in the last [region] section, change the `classes` value to the number of classes to be trained for.
+
+   * in the second last [convolutional] section, change the `filters` value based on the newly defined `classes` value. The following equation can be used to calculate a new number of `filters`.
+
+     **new_filter_number = 5 * (5 + new_class_number)**
+
+### Custom dataset preparation
+
+- collect images for custom object detection (> 300 images at least) - one of the easiest ways is to scrap them from online. For this option, check out [this article](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Preparing%20your%20own%20image%20dataset.md) about `google_images_downloads` module.
+- Label images using `labelimg` - a graphical image annotation tool for object/bouding_box labeling. The prebuilt binary can be downloaded [HERE](http://tzutalin.github.io/labelImg/) while the [official repository](https://github.com/tzutalin/labelImg) also contains lots of useful information.
+
+### Training
+
+```python
+config = tf.ConfigProto(log_device_placement=True)
+config.gpu_options.allow_growth=True
+with tf.Session(config=config) as sess:
+    options = {
+        'model':os.path.join('cfg','yolov2_new.cfg'), #(1)
+        'load':os.path.join('bin','yolov2.weights'), #(2)
+        'epoch':100, #(3)
+        'batch':16, #(4)
+        'train':True, #(5)
+        'dataset':os.path.join('..','downloads','img'), #(6)
+        'annotation':os.path.join('..','downloads','img-annot'), #(6)
+        'gpu':0.8 #(7)
+    }
+    tfnet = TFNet(options)
+tfnet.train() #(8)
+```
+
+(1) the modified .cfg file
+
+(2) the same weights file for the transfer learning
+
+(3) number of epochs for training
+
+(4) the batch size for training
+
+(5) indicate that the training will take place
+
+(6) paths to the prepared images and the corresponding annotations
+
+(7) the portion of gpu memory to be used for training
+
+(8) training begins
+
+### Testing the newly-trained YOLO model
+
+```python
+with tf.Session(config=config) as sess:
+    options = {
+        'model':os.path.join('cfg','yolov2_new.cfg'), #(1)
+        'load':-1, #(2)
+        'gpu':1.0, #(3)
+        'threshold':0.3 #(4)
+    }
+    tfnet_new = TFNet(options)
+tfnet_new.load_from_ckpt()
+```
+
+(1) the modified .cfg file
+
+(2) loading the newly trained weights (the latest layer)
+
+(3) the portion of the gpu memory to be used for testing
+
+(4) the threshold value (0.0-1.0) for non-maximum suppression
+
+
+
+## to be added
+
+output examples of the transfer learning codes will be added shortly
