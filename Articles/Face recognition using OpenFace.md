@@ -11,11 +11,13 @@ If your face-checking system is based on the ***face verification*** method:
 * In addition to your face image, you also need to provide your name (or any other registered labels) to the system. The system, then, extracts your registered image from K images in the database based on the provided name, and compares it with the new image to output whether the new image is you or not. It is a **1:1 image comparison** method.
 
 <p align="center"><img src="../images/face_recognition_face_verification_example.png" width="80%"></p>
+
 If your face-checking system is based on the ***face recognition*** method:
 
 * The system compares your face image with K registered images in the database and output your name (or any other registered labels) if your face is indeed recognized to be one of the K images. It is a **1:K image comparison** method.
 
 <p align="center"><img src="../images/face_recognition_face_recognition_example.png" width="80%"></p>
+
 ## Challenges with Face recognition systems
 
 Compared to face verification, face recognition is more challenging as a small error in 1:1 face verification may amplify in 1:K face recognition problems. 
