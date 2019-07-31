@@ -2,6 +2,15 @@
 
 This repository contains a collection of my personal articles on various topics of machine learning and deep learning research in python.
 
+### [Face recognition using OpenFace][7]
+
+**Face recognition** is an interesting and very powerful application of a convolution neural network (CNN). It is the ubiquitous technology that can be used for many different purposes (i.e. to claim identification at the entrance, to track the motion of specific individuals, etc.). This article explores the theoretical background of popular face recognition systems and also introduce the practical way of implementing FaceNet model on Keras (with TensorFlow backend) with a custom dataset.
+
+<p align="center">
+<img src="images/face_recognition_embedding_example.png" width="45%">
+<img src="images/face_recognition_face_recognition_example.png" width="45%">
+</p>
+
 ### [Training and running Yolo on Jupyter notebook (TensorFlow)][6]
 
 **YOLO (You Only Look Once)** is one of the most popular state-of-the-art one-stage object detectors out in the field. Unlike other typical two-stage object detectors like R-CNN, YOLO looks at the entire image once (with a single neural network) to localize/classify the objects that it was trained for. 
@@ -9,7 +18,6 @@ This repository contains a collection of my personal articles on various topics 
 The original YOLO algorithm is implemented in [darknet](https://github.com/pjreddie/darknet) framework by Joseph Redmon. This open-source framework is written in C and CUDA, and therefore a new framework called [**darkflow**](https://github.com/thtrieu/darkflow) has been introduced to implement YOLO on TensorFlow. This article describes the practical step-by-step process of configuring, running, and training custom YOLO on Jupyter notebook and TensorFlow.
 
 <p align="center"><img src="images/TRYJN_test_image_output.png" width="50%"></p>
-
 ###  [Exploring non-linear activation functions][5]
 
 In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the simple MNIST dataset (both on arbitrarily-built NN and CNN architectures).
@@ -24,7 +32,6 @@ In a neural network, an activation function is an important transformer which en
 One of the most crucial parts in general CNN/computer vision modelling problems is to have a good quality/quantity image dataset. Depending on the number of available training data and their quality (i.e. correctly labelled? contains a good representation of a class? contains different variations of each class? and etc.), very different models will be achieved with different performances. Among many, one of the easiest way to prepare one's own dataset is to collect them from online. This article describes one way of doing it using `google_images_download` module. With a list of specific search queries, collecting tens of thousands of images to build a customized training dataset becomes straightforward.
 
 <p align="center"><img src="images/gid_output_example.png" width="600"></p>
-
 ### [Handling overfitting in CNN using keras ImageDataGenerator][2]
 
 When training a CNN model, one of the typical problems one may encounter is a model overfitting. It happens for several reasons and limits the performance of the model. Among many ways to resolve this issue, this article describes a way to implement ***data augmentation*** using keras' `ImageDataGenerator`. A few different scenarios where this class can be implemented are explored with actual code examples. 
@@ -51,3 +58,5 @@ Regardless of the type of predictive modelling problems on hands, a model is opt
 [5]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Exploring%20non-linear%20activation%20functions.md
 
 [6]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Training%20and%20running%20Yolo%20on%20Jupyter%20notebook%20(tensorflow).md
+
+[7]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Face%20recognition%20using%20OpenFace.md
