@@ -11,6 +11,8 @@ This repository contains a collection of my personal articles on various topics 
 <img src="images/face_recognition_face_recognition_example.png" width="45%">
 </p>
 
+
+
 ### [Training and running Yolo on Jupyter notebook (TensorFlow)][6]
 
 **YOLO (You Only Look Once)** is one of the most popular state-of-the-art one-stage object detectors out in the field. Unlike other typical two-stage object detectors like R-CNN, YOLO looks at the entire image once (with a single neural network) to localize/classify the objects that it was trained for. 
@@ -18,6 +20,8 @@ This repository contains a collection of my personal articles on various topics 
 The original YOLO algorithm is implemented in [darknet](https://github.com/pjreddie/darknet) framework by Joseph Redmon. This open-source framework is written in C and CUDA, and therefore a new framework called [**darkflow**](https://github.com/thtrieu/darkflow) has been introduced to implement YOLO on TensorFlow. This article describes the practical step-by-step process of configuring, running, and training custom YOLO on Jupyter notebook and TensorFlow.
 
 <p align="center"><img src="images/TRYJN_test_image_output.png" width="50%"></p>
+
+
 ###  [Exploring non-linear activation functions][5]
 
 In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the simple MNIST dataset (both on arbitrarily-built NN and CNN architectures).
@@ -27,22 +31,30 @@ In a neural network, an activation function is an important transformer which en
 <img src="images/activation_wrongly_classified_cnn_nn_comparison.png" width="65%">
 </p>
 
+
+
 ### [Preparing a customized image dataset from online sources][1]
 
 One of the most crucial parts in general CNN/computer vision modelling problems is to have a good quality/quantity image dataset. Depending on the number of available training data and their quality (i.e. correctly labelled? contains a good representation of a class? contains different variations of each class? and etc.), very different models will be achieved with different performances. Among many, one of the easiest way to prepare one's own dataset is to collect them from online. This article describes one way of doing it using `google_images_download` module. With a list of specific search queries, collecting tens of thousands of images to build a customized training dataset becomes straightforward.
 
 <p align="center"><img src="images/gid_output_example.png" width="600"></p>
+
+
 ### [Handling overfitting in CNN using keras ImageDataGenerator][2]
 
 When training a CNN model, one of the typical problems one may encounter is a model overfitting. It happens for several reasons and limits the performance of the model. Among many ways to resolve this issue, this article describes a way to implement ***data augmentation*** using keras' `ImageDataGenerator`. A few different scenarios where this class can be implemented are explored with actual code examples.
 
 <p align="center"><img src="images/directory_example_1.png" width="150"></p>
 
+
+
 ### [Comparison studies (pros/cons) on various supervised machine learning models][3]
 
 For typical supervised predictive modelling problems including regression and classification, there exist many different algorithms a practitioner can choose to use. Depending on the type of given problems, one algorithm tends to perform better than the others, but there is no one single algorithm that simply outperforms its counterparts in all different situations. This article explores some pros and cons of different supervised machine learning algorithms with least amount of maths involved. In these days, many high-level modules such as `scikit-learn` and `TensorFlow` are available for a practitioner to build and test different algorithms with only a few lines of code. One may need to test a few before choosing and optimizing a single model to work with.
 
 <p align="center"><img src="images/comparison_example.png" width="600"></p>
+
+
 
 ### [Model evaluation][4]
 
