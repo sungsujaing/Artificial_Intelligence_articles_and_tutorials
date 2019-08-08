@@ -2,6 +2,17 @@
 
 This repository contains a collection of my personal articles on various topics of machine learning and deep learning research in python.
 
+### [OpenCV basics in python (Jupyter notebook)][8]
+
+**OpenCV** is a powerful open-source tool that can be used in a variety of deep learning projects involving images and videos (in the field of computer vision). This article explores the basic/fundamental uses of this library in Python, especially in the Jupyter notebook environment. The purpose of this article is to provide the practical examples of the usages of some basic OpenCV algorithms on images and videos so that one can build upon the custom projects more easily.
+
+<p align="center">
+<img src="images/opencv_th_summary.png" width="55%">
+<img src="images/opencv_param_tunning_summary.png" width="85%">
+</p>
+
+
+
 ### [Face recognition using OpenFace][7]
 
 **Face recognition** is an interesting and very powerful application of a convolution neural network (CNN). It is the ubiquitous technology that can be used for many different purposes (i.e. to claim identification at the entrance, to track the motion of specific individuals, etc.). This article explores the theoretical background of popular face recognition systems and also introduce the practical way of implementing FaceNet model on Keras (with TensorFlow backend) with a custom dataset.
@@ -21,7 +32,6 @@ The original YOLO algorithm is implemented in [darknet](https://github.com/pjred
 
 <p align="center"><img src="images/TRYJN_test_image_output.png" width="50%"></p>
 
-
 ###  [Exploring non-linear activation functions][5]
 
 In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the simple MNIST dataset (both on arbitrarily-built NN and CNN architectures).
@@ -39,7 +49,6 @@ One of the most crucial parts in general CNN/computer vision modelling problems 
 
 <p align="center"><img src="images/gid_output_example.png" width="600"></p>
 
-
 ### [Handling overfitting in CNN using keras ImageDataGenerator][2]
 
 When training a CNN model, one of the typical problems one may encounter is a model overfitting. It happens for several reasons and limits the performance of the model. Among many ways to resolve this issue, this article describes a way to implement ***data augmentation*** using keras' `ImageDataGenerator`. A few different scenarios where this class can be implemented are explored with actual code examples.
@@ -47,13 +56,11 @@ When training a CNN model, one of the typical problems one may encounter is a mo
 <p align="center"><img src="images/directory_example_1.png" width="150"></p>
 
 
-
 ### [Comparison studies (pros/cons) on various supervised machine learning models][3]
 
 For typical supervised predictive modelling problems including regression and classification, there exist many different algorithms a practitioner can choose to use. Depending on the type of given problems, one algorithm tends to perform better than the others, but there is no one single algorithm that simply outperforms its counterparts in all different situations. This article explores some pros and cons of different supervised machine learning algorithms with least amount of maths involved. In these days, many high-level modules such as `scikit-learn` and `TensorFlow` are available for a practitioner to build and test different algorithms with only a few lines of code. One may need to test a few before choosing and optimizing a single model to work with.
 
 <p align="center"><img src="images/comparison_example.png" width="600"></p>
-
 
 
 ### [Model evaluation][4]
@@ -76,3 +83,5 @@ Regardless of the type of predictive modelling problems on hands, a model is opt
 [6]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Training%20and%20running%20Yolo%20on%20Jupyter%20notebook%20(tensorflow).md
 
 [7]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Face%20recognition%20using%20OpenFace.md
+
+[8]: 
