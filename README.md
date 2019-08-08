@@ -84,4 +84,5 @@ Regardless of the type of predictive modelling problems on hands, a model is opt
 
 [7]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/Face%20recognition%20using%20OpenFace.md
 
-[8]: 
+[8]: https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Articles/OpenCV%20basics%20in%20python.md
+
