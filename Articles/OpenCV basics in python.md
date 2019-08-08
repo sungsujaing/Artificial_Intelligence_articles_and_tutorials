@@ -253,7 +253,7 @@ cv2.waitKey(1)
 
 
 
-###Optimizing the parameters
+### Optimizing the parameters
 
 Many OpenCV functions require the parameters to be optimized for the best image processing results. The following code shows an example of parameter tunning where two Trackbars are used to explore the optimal parameters of the Canny edge detection algorithm for the given image.
 
