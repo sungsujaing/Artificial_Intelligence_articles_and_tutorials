@@ -251,7 +251,7 @@ cv2.waitKey(1)
 
 <p align="center"><img src="../images/opencv_th_summary.png" width="75%"></p>
 
-### 
+
 
 ###Optimizing the parameters
 
