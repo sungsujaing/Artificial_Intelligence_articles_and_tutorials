@@ -61,7 +61,6 @@ cv2.imwrite(os.path.join('..','images','opencv_SeanProfile_gray.png'),img) # (8)
 <p align="center"><img src="../images/opencv_load_process_write_summary.png" width="60%"></p>
 
 
-
 ### Obtaining properties of the image
 
 ```python
@@ -74,7 +73,6 @@ print('image height (rows): {}\nimage width (cols): {}\nimage channel: {}'.forma
 (1) `.shape` gives you the dimensional properties of the image. Just like any regular Numpy array, it is in the form of **rows (height), columns (width), channel**. It should be noted that it is different from the **(width, height, channel)** standards.
 
 <p align="center"><img src="../images/opencv_shape_example.png" width="40%"></p>
-
 
 ### Resizing
 
@@ -91,7 +89,6 @@ cv2.waitKey(1)
 (1) `.resize()` is used to resize the image. It should be noted that the desired dimension needs to be provided in the **(width, height)** or (cols, rows) format.
 
 <p align="center"><img src="../images/opencv_resize_summary.png" width="65%"></p>
-
 
 
 ### Insert geometric shapes
@@ -113,7 +110,6 @@ cv2.waitKey(1)
 ```
 
 <p align="center"><img src="../images/opencv_shapes_example.png" width="30%"></p>
-
 
 ### Find pixel coordinate in the image
 
@@ -153,7 +149,6 @@ cv2.waitKey(1)
 
 <p align="center"><img src="../images/opencv_getting_coord_example.png" width="35%"></p>
 
-
 ### Simple processing - blurring to remove noise
 
 Other blurring types include: 
@@ -184,7 +179,6 @@ cv2.waitKey(1)
 <p align="center"><img src="../images/opencv_blurring_summary.png" width="75%"></p>
 
 
-
 ### Simple processing - canny edge detection
 
 Other edge detection types include:
@@ -208,7 +202,6 @@ cv2.waitKey(1)
 (1) Canny edge detection
 
 <p align="center"><img src="../images/opencv_canny_summary.png" width="65%"></p>
-
 
 
 ### Simple processing - threshold filtering
@@ -252,7 +245,6 @@ cv2.waitKey(1)
 <p align="center"><img src="../images/opencv_th_summary.png" width="75%"></p>
 
 
-
 ### Optimizing the parameters
 
 Many OpenCV functions require the parameters to be optimized for the best image processing results. The following code shows an example of parameter tunning where two Trackbars are used to explore the optimal parameters of the Canny edge detection algorithm for the given image.
@@ -278,7 +270,6 @@ print('chosen th1: {}\nchosen th2: {}'.format(th1,th2))
 ```
 
 <p align="center"><img src="../images/opencv_param_tunning_summary.png" width="90%"></p>
-
 
 
 ## Upcoming tutorials include:
