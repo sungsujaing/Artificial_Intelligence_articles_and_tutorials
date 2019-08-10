@@ -259,7 +259,7 @@ One of the most critical disadvantages of GAN is that the loss does not really c
 #### Training summary
 
 <p align="center">
-  <img src="../images/GAN_training_summary.png" width="95%">
+  <img src="../images/gan_training_summary.png" width="95%">
 </p>
 
 <p align="center">
@@ -297,7 +297,7 @@ While the full codes to implement WGAN on Fashion_MNIST is presented [***HERE***
 ### Results
 
 <p align="center">
-  <img src="../images/WGAN_training_graph_example.png" width="55%">
+  <img src="../images/wgan_training_graph_example.png" width="55%">
 </p>
 
 <p align="center">
