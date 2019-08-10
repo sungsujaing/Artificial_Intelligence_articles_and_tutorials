@@ -35,7 +35,6 @@ As training proceeds, both models get better and better at their jobs in an adve
 
 <p align="center"><img src="../images/gan_structure.png" width="85%"></p>
 
-
 ## GAN example on Fashion_MNIST
 
 The full code snippet of this GAN example can be found in [***this repository***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Fashion_image_generator_using_GAN%20and%20WGAN.ipynb).
