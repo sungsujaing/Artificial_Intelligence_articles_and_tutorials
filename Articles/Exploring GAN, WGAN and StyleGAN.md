@@ -1,6 +1,6 @@
 # Exploring GAN, WGAN and StyleGAN
 
-**GAN (Generative and Adversarial Network)** is one of the recent technologies in the field of deep learning that is pushing the threshold of deep-learning-based generative models in many different domains such as images and sounds. GAN is a powerful generative model as it can learn the general distribution of given data in a highly effective way. Since its [first introduction in 2014](https://arxiv.org/pdf/1406.2661.pdf), there has been a number of [interesting variations/applications](https://github.com/nashory/gans-awesome-applications#anime-character-generation) made from GAN. This article would like to explore the theoretical backgrounds of the basic GAN model (in terms of images) and introduce practical code snippets to generate the fashion_MNIST-like images from scratch. At the end of this article, WGAN (Wasserstein Generative and Adversarial Network) and NVIDIA's StyleGan will be briefly introduced as well.
+**GAN (Generative and Adversarial Network)** is one of the recent technologies in the field of deep learning that is pushing the threshold of deep-learning-based generative models in many different domains such as images and sounds. GAN is a powerful generative model as it can learn the general distribution of given data in a highly effective way. Since its [first introduction in 2014](https://arxiv.org/pdf/1406.2661.pdf), there has been a number of [interesting variations/applications](https://github.com/nashory/gans-awesome-applications#anime-character-generation) made from GAN. This article would like to explore the theoretical backgrounds of the basic GAN model (in terms of images) and introduce practical code examples to generate the fashion_MNIST-like images from scratch. At the end of this article, WGAN (Wasserstein Generative and Adversarial Network) and NVIDIA's StyleGan will be briefly introduced as well.
 
 Gan is composed of a pair of neural networks that:
 
@@ -34,10 +34,9 @@ The second part is to train the entire model where a generator and a discriminat
 As training proceeds, both models get better and better at their jobs in an adversarial manner: **generator** gets better at producing realistic images to fool discriminator --> **discriminator** gets better at classifying the true real images and the realistic fake images from generator --> **generator** gets better .. --> **discriminator** gets better --> ... In other words, the discriminator and the adversarial (or generator) models are trained simultaneously to reach a Nash equilibrium.
 
 <p align="center"><img src="../images/gan_structure.png" width="85%"></p>
-
 ## GAN example on Fashion_MNIST
 
-The full code snippet of this GAN example can be found in [***this repository***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Fashion_image_generator_using_GAN%20and%20WGAN.ipynb).
+The full code of this GAN example can be found in [***this repository***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Fashion_image_generator_using_GAN%20and%20WGAN.ipynb).
 
 ### Import modules and define configurations
 
@@ -307,7 +306,7 @@ While the full codes to implement WGAN on Fashion_MNIST is presented [***HERE***
 
 ## StyleGAN
 
-Another very interesting extension of GAN includes [NVIDIA's StyleGAN](https://arxiv.org/pdf/1812.04948.pdf) introduced in 2018. StyleGAN generates extremely realistic images of human faces. The pre-trained model and weights are available in their repository and they can be used to generate the highly resolved fake human face images from Jupyter notebook. The full code snippet to implement StyleGAN can be found [***HERE***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/NVIDIA_style_GAN_face_gen_example.ipynb).
+Another very interesting extension of GAN includes [NVIDIA's StyleGAN](https://arxiv.org/pdf/1812.04948.pdf) introduced in 2018. StyleGAN generates extremely realistic images of human faces. The pre-trained model and weights are available in their repository and they can be used to generate the highly resolved fake human face images from Jupyter notebook. The full code to implement StyleGAN can be found [***HERE***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/NVIDIA_style_GAN_face_gen_example.ipynb).
 
 First, we need to clone the StyleGAN repository as:
 

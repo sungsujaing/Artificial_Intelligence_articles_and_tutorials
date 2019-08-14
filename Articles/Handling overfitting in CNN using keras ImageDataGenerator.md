@@ -31,7 +31,7 @@ Prior to building an in-memory generator, the dataset needs to be resized and sp
 * `horizontal_flip` and `vertical_flip`: True or False for random flips
 * `preprocessing_funtion`: a function that will be implied on each input after all other resize and augmentation. Typically used when building transfer learning models
 
-example code snippit:
+example code snippet:
 
 ```python
 train_datagen = ImageDataGenerator(rotation_range=20,
@@ -63,12 +63,11 @@ model.evaluate(X_test,y_test) #(5)
 When the dataset is too large that cannot be stored in memory as a whole, this on-disk generator provides a way to continuously feed the model with a batch of data from the disk. Unlike the in-memory method, the on-disk method requires a practitioner to pre-process the dataset directory as:
 
 <p align="center"><img src="../images/directory_example_1.png" width="200"></p>
-
 Labels are automatically created during the training by the name of the class folders. While the full list of arguments for preprocessing and augmentation can be found in the official keras document ([here](https://keras.io/preprocessing/image/)), some popular arguments that are particularly useful in the on-disk generator method include:
 
 * `rescale`: a rescaling factor which is multiplied after applying all other transformation. (i.e. 1./255 for image normalization)
 
-example code snippit:
+example code snippet:
 
 ```python
 train_datagen = ImageDataGenerator(rescale=1./255, #(1)
@@ -123,12 +122,11 @@ model.evaluate_generator(test_generator,test_generator.n) #(7)
 For the use of the on-disk generator, train and valid sets can be combined here as (case 2):
 
 <p align="center"><img src="../images/directory_example_2.png" width="200"></p>
-
 In this case, one extra argument is used when defining the `ImageDataGenerator`:
 
 * `validation_split`: a fraction of training set that is to be used as a validation set. Needed when the image directories are prepared as in case 2 above.
 
-Example code snippit:
+example code snippet:
 
 ```python
 train_datagen = ImageDataGenerator(rescale=1./255,
