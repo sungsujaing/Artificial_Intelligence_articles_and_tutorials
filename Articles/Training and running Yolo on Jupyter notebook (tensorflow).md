@@ -75,6 +75,8 @@ with tf.Session(config=config) as sess:
 Expected output:
 
 <p align="center"><img src="../images/TRYJN_building_output.png" width="500"></p>
+
+
 ### Run the pre-trained YOLO on a sample image
 
 ```python

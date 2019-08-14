@@ -34,6 +34,8 @@ The second part is to train the entire model where a generator and a discriminat
 As training proceeds, both models get better and better at their jobs in an adversarial manner: **generator** gets better at producing realistic images to fool discriminator --> **discriminator** gets better at classifying the true real images and the realistic fake images from generator --> **generator** gets better .. --> **discriminator** gets better --> ... In other words, the discriminator and the adversarial (or generator) models are trained simultaneously to reach a Nash equilibrium.
 
 <p align="center"><img src="../images/gan_structure.png" width="85%"></p>
+
+
 ## GAN example on Fashion_MNIST
 
 The full code of this GAN example can be found in [***this repository***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Fashion_image_generator_using_GAN%20and%20WGAN.ipynb).
@@ -95,7 +97,7 @@ inputs_gen = Input(shape=(latent_dim,))
 outputs_gen = model_gen(inputs_gen)
 generator = Model(inputs_gen,outputs_gen)
 
-### Discriminator
+## Discriminator
 model_disc = Sequential()
 init = RandomNormal(mean=0.0, stddev=0.02)
 model_disc.add(Conv2D(32,3,strides=(2,2),padding='same',kernel_initializer=init,input_shape=img_shape))
