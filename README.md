@@ -1,6 +1,6 @@
-# AL/DL/ML/DS articles and tutorials
+# Artificial Intelligence articles and tutorials
 
-This repository contains a collection of my articles on various topics of Artificial Intelligence and Deep learning research in python. Some articles contain code examples for demonstration purposes and the links to the full version of the corresponding code can be found in each article.
+This repository contains a collection of my articles on various topics of AI (also DL/ML/DS) research in python. Some articles contain code examples for demonstration purposes and the links to the full version of the corresponding code can be found in each article.
 
 ## Current list of topics
 * [**Exploring distributed training with Keras and TensorFlow data module**](#exploring-distributed-training-with-keras-and-tensorflow-data-module-or-code)
