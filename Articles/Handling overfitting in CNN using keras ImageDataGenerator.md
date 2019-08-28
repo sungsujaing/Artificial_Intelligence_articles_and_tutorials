@@ -25,7 +25,7 @@ from keras.preprocessing.image import ImageDataGenerator
 
 ## Define/fit an *in-memory* generator
 
-Prior to building an in-memory generator, the dataset needs to be resized and splited into training, validation and test sets (i.e. using sklearn's `train_test_split`. While the full list of arguments for preprocessing and augmentation can be found in the official keras document ([here](https://keras.io/preprocessing/image/)), some popular arguments for the in-memory generator include:
+Prior to building an in-memory generator, the dataset needs to be resized and splited into training, validation and test sets (i.e. using sklearn's `train_test_split`. While the full list of arguments for preprocessing and augmentation can be found in the [official keras documentation](https://keras.io/preprocessing/image/), some popular arguments for the in-memory generator include:
 
 * `rotation_range`: the range of random rotation degree
 * `horizontal_flip` and `vertical_flip`: True or False for random flips
@@ -75,13 +75,13 @@ train_datagen = ImageDataGenerator(rescale=1./255, #(1)
                                    width_shift_range=0.2,
                                    rotation_range=20,
                                    horizontal_flip=True)
-train_datagen.fit(X_train)  #(2)
-valid_test_datagen = ImageDataGenerator(rescale=1./255) #(3)
-#(4)
+
+valid_test_datagen = ImageDataGenerator(rescale=1./255) #(2)
+#(3)
 train_generator = train_datagen.flow_from_directory(Train_path,
-                                                    target_size=(img_width,img_height), #(5)
+                                                    target_size=(img_width,img_height), #(4)
                                                     batch_size=batch_size,
-                                                    class_mode='binary', #(6)
+                                                    class_mode='binary', #(5)
                                                     shuffle=True,
                                                     seed=0)
 valid_generator = valid_test_datagen.flow_from_directory(Valid_path,
@@ -100,22 +100,20 @@ hist = model.fit_generator(train_generator,
                            epochs=epochs,
                            validation_data=valid_generator,
                            validation_steps=valid_generator.n//valid_generator.batch_size)
-model.evaluate_generator(test_generator,test_generator.n) #(7)
+model.evaluate_generator(test_generator,test_generator.n) #(6)
 ```
 
 (1) Unlike the in-memory method, image rescaling is done in real-time
 
-(2) only necessary if some arguments are used that require data-dependent transformation (i.e. `featurewise_center`,`featureise_std_normalization`,`zca_whitening`, etc)
+(2) Separate datagen is defined for valid and test sets without any data augmentation arguments
 
-(3) Separate datagen is defined for valid and test sets without any data augmentation arguments
+(3) `flow_from_directory` method is used here
 
-(4) `flow_from_directory` method is used here
+(4) Unlike the in-memory method, image resizing is done in real-time
 
-(5) Unlike the in-memory method, image resizing is done in real-time
+(5) `class_mode` needs to be set to either 'binary', 'categorical', 'sparse', 'input', 'other' or None
 
-(6) `class_mode` needs to be set to either 'binary' or 'categorical'
-
-(7) evaluate on a test set
+(6) evaluate on a test set
 
 ### Optional
 
@@ -135,7 +133,7 @@ train_datagen = ImageDataGenerator(rescale=1./255,
                                    rotation_range=20,
                                    horizontal_flip=True,
                                    validation_split=0.2)
-train_datagen.fit(X_train)
+
 test_datagen = ImageDataGenerator(rescale=1./255) #(1)
 train_generator = train_datagen.flow_from_directory(Train_path,
                                                     target_size=(img_width,img_height),
