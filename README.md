@@ -1,7 +1,20 @@
-# ML_DL_articles_resources
+# AL/DL/ML/DS articles and tutorials
 
-This repository contains a collection of my personal articles on various topics of Artificial Intelligence and Deep learning research in python.
+This repository contains a collection of my articles on various topics of Artificial Intelligence and Deep learning research in python. Some articles contain code examples for demonstration purposes and the links to the full version of the corresponding code can be found in each article.
 
+## Current list of topics
+* [**Exploring distributed training with Keras and TensorFlow data module**](#exploring-distributed-training-with-keras-and-tensorflow-data-module-or-code)
+* [**Exploring GAN, WGAN and StyleGAN**](#exploring-gan-wgan-and-stylegan-or-code)
+* [**OpenCV basics in python (Jupyter notebook)**](#opencv-basics-in-python-jupyter-notebook-or-code)
+* [**Face recognition using OpenFace**](#face-recognition-using-openface-or-code)
+* [**Training and running Yolo on Jupyter notebook (TensorFlow)**](#training-and-running-yolo-on-jupyter-notebook-tensorflow)
+* [**Exploring non-linear activation functions**](#exploring-non-linear-activation-functions-or-code)
+* [**Preparing a customized image dataset from online sources**](#preparing-a-customized-image-dataset-from-online-sources)
+* [**Handling overfitting in CNN using keras ImageDataGenerator**](#handling-overfitting-in-cnn-using-keras-imagedatagenerator)
+* [**Comparison studies (pros and cons) on various supervised machine learning models**](#comparison-studies-pros-and-cons-on-various-supervised-machine-learning-models)
+* [**Model evaluation**](#model-evaluation)
+
+## Summaries
 ### [Exploring distributed training with Keras and TensorFlow data module][10] (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Exploring%20distributed%20training%20with%20keras%20and%20tensorflow%20data%20module.ipynb))
 
 When a relatively small amount of data is on hand to train a relatively simple model with a single processing unit (CPU, GPU or TPU), training may not take too much time and a practitioner can go through several rounds of trial-and-error to optimize their models. When the amount of data gets bigger or the model gets complicated, training becomes computationally expensive and the corresponding training may take a few hours, days, even weeks, making the overall model development process very inefficient. The solution is **distributed training** or going parallel with multiple processing units (or even workers)! This article introduces the needs and importance of distributed training, and explores `tf.distribute.Strategy` and `tf.data` modules with actual code examples to understand how the TensorFlow's high-level API  `tf.keras` can be tweaked to enable the distributed training with minimal changes in its user-friendly models/codes.
@@ -12,18 +25,17 @@ When a relatively small amount of data is on hand to train a relatively simple m
 </p>
 
 
-
 ### [Exploring GAN, WGAN and StyleGAN][9] (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Fashion_image_generator_using_GAN%20and%20WGAN.ipynb))
 
 **GAN (Generative and Adversarial Network)** is one of the recent technologies in the field of deep learning that is pushing the threshold of deep-learning-based generative models in many different domains. Since its [first introduction in 2014](https://arxiv.org/pdf/1406.2661.pdf), there has been a number of [interesting variations/applications](https://github.com/nashory/gans-awesome-applications#anime-character-generation) made from GAN. This article would like to explore the theoretical backgrounds of the basic GAN model (in terms of images) and introduce practical code examples to generate the fashion_MNIST-like images from scratch. At the end of this article, WGAN (Wasserstein Generative and Adversarial Network) and NVIDIA's StyleGan are briefly explored as well.
 
-### GAN Structure
+#### GAN Structure
 
 <p align="center"><img src="images/gan_structure.png" width="55%"></p>
 
 
 
-### GAN training summary
+#### GAN training summary
 
 <p align="center">
 	<img src="images/gan_training_summary.png" width="95%">
@@ -32,7 +44,7 @@ When a relatively small amount of data is on hand to train a relatively simple m
 
 
 
-### StyleGAN fake human face generation (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/NVIDIA_StyleGAN_face_gen_example.ipynb))
+#### StyleGAN fake human face generation (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/NVIDIA_StyleGAN_face_gen_example.ipynb))
 
 <p align="center">
 <img src="images/NVIDIA_style_GAN_face_results/face_gen_example.png" width="55%">
@@ -99,7 +111,7 @@ When training a CNN model, one of the typical problems one may encounter is a mo
 
 
 
-### [Comparison studies (pros/cons) on various supervised machine learning models][3]
+### [Comparison studies (pros and cons) on various supervised machine learning models][3]
 
 For typical supervised predictive modelling problems including regression and classification, there exist many different algorithms a practitioner can choose to use. Depending on the type of given problems, one algorithm tends to perform better than the others, but there is no one single algorithm that simply outperforms its counterparts in all different situations. This article explores some pros and cons of different supervised machine learning algorithms with least amount of maths involved. In these days, many high-level modules such as `scikit-learn` and `TensorFlow` are available for a practitioner to build and test different algorithms with only a few lines of code. One may need to test a few before choosing and optimizing a single model to work with.
 
