@@ -12,9 +12,8 @@ When a relatively small amount of data is on hand to train a relatively simple m
 * Data Parallelism: when the given data is too large
 
 <p align="center"><img src="../images/distrib_model_data_parallelism.png" width="80%"></p>
-source: [Uber Open Summit 2018 - Horovod: Distributed Deep Learning in 5 Lines of Python](https://www.youtube.com/watch?v=4y0TDK3KoCA&t=1311s)
 
-
+source: [(Uber Open Summit 2018) Horovod: Distributed Deep Learning in 5 Lines of Python](https://www.youtube.com/watch?v=4y0TDK3KoCA&t=1311s)
 
 However, it should be noted that the model parallelism is not so much effective these days since modern accelerators (GPU or TPU) have enough RAMs to store a single model with no difficulties.
 
@@ -26,9 +25,8 @@ When a single processing unit is not enough to train a large amount of data, a n
 * ***Synchronous training***: all workers train over different slices of input data in sync. ***Example***: synchronous all-reduce architecture - model parameters are mirrored across the workers and each worker computes loss and gradient based on the subset of input data given. The gradients get aggregated at each step and the result becomes available on each worker via all-reduce. Based on the shared gradients, each worker then updates the model parameters to the identical values. When the communication among different workers is controlled well, this approach can enable highly effective distributed training. This approach is preferable when a training system is composed of powerful/reliable machines (i.e. GPUs or TPUs) with strong communication. 
 
 <p align="center"><img src="../images/distrib_data_parallelism_summary.png" width="80%"></p>
+
 source: [Distributed TensorFlow training (Google I/O '18)](https://www.youtube.com/watch?v=bRMGoPqsn20)
-
-
 
 By `tf.distribute.Strategy` API, TensorFlow provides highly effective ways to implement the powerful distributed training into not only the custom training loops, but also TensorFlow's high-level APIs including `tf.keras` and `tf.estimator`. A few strategies it provides include:
 
@@ -46,15 +44,14 @@ In normal cases, the input data is read in a `numpy` array format and gets fed i
 In the synchronous distributed training architecture, the dataset is processed by slow CPUs while the heavy-load training is performed by much faster accelerators. In this case, the bottleneck of the system is the slow CPUs. The Extract-Transform-Load (ETL) process of `tf.data` effectively utilizes CPUs via ***pipelining***, thereby improving the efficiency of the overall synchronous distributed training. 
 
 <p align="center"><img src="../images/distrib_pipelining_summary.png" width="80%"></p>
+
 source: [Data input pipelines, Performance - tf.data Performance](https://www.tensorflow.org/beta/guide/data_performance)
-
-
 
 As described in the image above, CPUs (preparing input data) and accelerators (training) experience severe idle times during the typical synchronous distributed training process without pipelining. With pipelining, the CPUs are fully utilized by overlapping data-producing and data-consuming steps, minimizing the overall training time. More details about how effective pipelining is achieved with `tf.data` will be explained later with actual code examples.
 
 ## Distributed training with Keras - sample codes for training image classification on MNIST
 
-In order to demonstrate the model building process using `tf.keras` API for distributed training, an arbitrary model can be built to classify MNIST digits. Please note that this model was meant to be highly simple, not necessarily producing the best model. The full codes and the output results are presented [***HERE***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Exploring%20distributed%20training%20with%20Keras%20and%20TensorFlow%20data%20module.ipynb) - it should be noted that the following codes were tested on my Macbook Pro without an accelerator for demonstration purposes. Therefore, the actual distributed training was not happening, but the same codes can be utilized to scale up the training.
+In order to demonstrate the model building process using `tf.keras` API for distributed training, an arbitrary model can be built to classify MNIST digits. Please note that this model was meant to be highly simple, not necessarily producing the best model. The full codes and the output results are presented [***HERE***](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Exploring%20distributed%20training%20with%20keras%20and%20tensorflow%20data%20module.ipynb) - it should be noted that the following codes were tested on my Macbook Pro without an accelerator for demonstration purposes. Therefore, the actual distributed training was not happening, but the same codes can be utilized to scale up the training.
 
 ```python
 import tensorflow as tf
