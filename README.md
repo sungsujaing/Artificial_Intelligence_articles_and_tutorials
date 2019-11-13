@@ -14,6 +14,12 @@ This repository contains a collection of my articles on various topics of AI (al
 * [**Comparison studies (pros and cons) on various supervised machine learning models**](#comparison-studies-pros-and-cons-on-various-supervised-machine-learning-models)
 * [**Model evaluation**](#model-evaluation)
 
+## Upcoming topics
+
+* Defining custom loss and custom layers on TensorFlow2.0 using `GradientTape`
+* TensorFlow Lite for mobile/embedded deployment
+* etc.
+
 ## Summaries
 ### [Exploring distributed training with Keras and TensorFlow data module][10] (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Exploring%20distributed%20training%20with%20keras%20and%20tensorflow%20data%20module.ipynb))
 
@@ -32,7 +38,6 @@ When a relatively small amount of data is on hand to train a relatively simple m
 #### GAN Structure
 
 <p align="center"><img src="images/gan_structure.png" width="55%"></p>
-
 
 
 #### GAN training summary
@@ -83,7 +88,6 @@ The original YOLO algorithm is implemented in [darknet](https://github.com/pjred
 <p align="center"><img src="images/TRYJN_test_image_output.png" width="50%"></p>
 
 
-
 ### [Exploring non-linear activation functions][5] (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/Activation_funtion_experiment.ipynb))
 
 In a neural network, an activation function is an important transformer which enables a model to learn non-linearity. There are different types of activation function and their performance depends on many different factors. This article explores a few of today's most popular types of activation functions in a neural network: ***sigmoid***, ***tanh***, ***ReLU*** and ***ELU***. Some pros and cons of each function are described along with their mathematical backgrounds. Lastly, experimental results are presented comparing the performance of the models with different activation functions when fitting the simple MNIST dataset (both on arbitrarily-built NN and CNN architectures).
@@ -102,7 +106,6 @@ One of the most crucial parts in general CNN/computer vision modelling problems 
 <p align="center"><img src="images/gid_output_example.png" width="600"></p>
 
 
-
 ### [Handling overfitting in CNN using keras ImageDataGenerator][2]
 
 When training a CNN model, one of the typical problems one may encounter is a model overfitting. It happens for several reasons and limits the performance of the model. Among many ways to resolve this issue, this article describes a way to implement ***data augmentation*** using keras' `ImageDataGenerator`. A few different scenarios where this class can be implemented are explored with actual code examples.
@@ -110,13 +113,11 @@ When training a CNN model, one of the typical problems one may encounter is a mo
 <p align="center"><img src="images/directory_example_1.png" width="150"></p>
 
 
-
 ### [Comparison studies (pros and cons) on various supervised machine learning models][3]
 
 For typical supervised predictive modelling problems including regression and classification, there exist many different algorithms a practitioner can choose to use. Depending on the type of given problems, one algorithm tends to perform better than the others, but there is no one single algorithm that simply outperforms its counterparts in all different situations. This article explores some pros and cons of different supervised machine learning algorithms with least amount of maths involved. In these days, many high-level modules such as `scikit-learn` and `TensorFlow` are available for a practitioner to build and test different algorithms with only a few lines of code. One may need to test a few before choosing and optimizing a single model to work with.
 
 <p align="center"><img src="images/comparison_example.png" width="600"></p>
-
 
 
 ### [Model evaluation][4]
