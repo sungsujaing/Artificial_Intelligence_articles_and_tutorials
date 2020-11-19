@@ -68,7 +68,7 @@ When a relatively small amount of data is on hand to train a relatively simple m
 
 
 
-### [Face recognition using OpenFace][7] (or [*Code*](https://github.com/sungsujaing/ML_DL_articles_resources/blob/master/Code%20appendix/OpenCV_tutorial.ipynb))
+### [Face recognition using OpenFace][7] (or [*Code*](https://github.com/sungsujaing/TV_time_tracking_face_recognition))
 
 **Face recognition** is an interesting and very powerful application of a convolution neural network (CNN). It is the ubiquitous technology that can be used for many different purposes (i.e. to claim identification at the entrance, to track the motion of specific individuals, etc.). This article explores the theoretical background of popular face recognition systems and also introduce the practical way of implementing FaceNet model on Keras (with TensorFlow backend) with a custom dataset.
 
